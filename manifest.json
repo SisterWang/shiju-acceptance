@@ -1,0 +1,11 @@
+{
+  "display_name": "世局",
+  "loading_order": 15,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "世局",
+  "version": "0.1.0-acceptance.20261027",
+  "auto_update": false
+}
