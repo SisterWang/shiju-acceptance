@@ -1329,3 +1329,142 @@
 #shiju-chrome .sj-prompt-settings :is(textarea, select, input, button, summary):focus-visible { outline: 2px solid var(--sj-accent); outline-offset: 2px; }
 #shiju-chrome .sj-prompt-error { color: var(--sj-accent); font-weight: 600; }
 #shiju-chrome .sj-prompt-settings :disabled { opacity: .6; cursor: not-allowed; }
+
+.sj-history-text { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 28rem; overflow: auto; font: inherit; }
+.sj-history-item > summary { cursor: pointer; overflow-wrap: anywhere; }
+.sj-request-history label { display: inline-block; margin: .4rem .5rem .4rem 0; }
+#shiju-chrome .sj-history-item[data-history-status="failed"] > summary,
+#shiju-chrome .sj-history-item[data-history-status="cancelled"] > summary { color: var(--sj-accent); }
+#shiju-chrome .sj-history-item[data-history-status="running"] > summary { font-weight: 600; }
+#shiju-chrome .sj-request-history :is(button, select, summary) { min-height: 44px; }
+#shiju-chrome .sj-request-history :is(button, select, summary):focus-visible { outline: 2px solid var(--sj-accent); outline-offset: 2px; }
+
+/* Settings: task-based navigation and a shared form hierarchy. */
+#shiju-chrome.sj-root .sj-settings { min-width: 0; font-size: 13px; line-height: 1.6; }
+#shiju-chrome.sj-root .sj-settings-nav {
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px;
+  padding: 4px; border: 1px solid var(--sj-border); border-radius: 10px;
+  background: var(--sj-surface); margin-bottom: 20px;
+}
+#shiju-chrome.sj-root .sj-settings-nav button {
+  min-height: 44px; border: 0; border-radius: 6px; padding: 8px 2px;
+  background: transparent; color: var(--sj-muted); cursor: pointer;
+}
+#shiju-chrome.sj-root .sj-settings-nav button:hover { background: var(--sj-raised); color: var(--sj-fg); }
+#shiju-chrome.sj-root .sj-settings-nav button[aria-current="page"] { background: var(--sj-accent-soft); color: var(--sj-fg); font-weight: 650; box-shadow: inset 0 -2px var(--sj-accent); }
+#shiju-chrome.sj-root .sj-settings-heading { margin: 0 2px 20px; }
+#shiju-chrome.sj-root .sj-settings-heading h2 { font-size: 19px; line-height: 1.35; font-weight: 650; margin: 0 0 6px; }
+#shiju-chrome.sj-root .sj-settings-heading p { color: var(--sj-muted); margin: 0; }
+#shiju-chrome.sj-root .sj-settings-card { padding: 16px; margin-bottom: 16px; border: 1px solid var(--sj-border); border-radius: 12px; background: var(--sj-surface); min-width: 0; }
+#shiju-chrome.sj-root .sj-settings-card-head { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+#shiju-chrome.sj-root .sj-settings-card-head h3 { color: var(--sj-fg); font-size: 15px; font-weight: 650; margin: 0; }
+#shiju-chrome.sj-root .sj-setting-scope { display: inline-block; font-size: 11px; font-weight: 400; color: var(--sj-muted); background: var(--sj-raised); padding: 2px 7px; border-radius: 4px; vertical-align: middle; white-space: nowrap; }
+#shiju-chrome.sj-root .sj-setting-row > div > .sj-setting-scope { margin-left: 6px; }
+#shiju-chrome.sj-root .sj-settings-description { margin: -4px 0 16px; color: var(--sj-muted); font-size: 12px; }
+#shiju-chrome.sj-root .sj-settings .sj-note { color: var(--sj-muted); font-size: 12px; line-height: 1.65; margin: 6px 0 0; }
+#shiju-chrome.sj-root .sj-setting-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+#shiju-chrome.sj-root .sj-setting-row > div { flex: 1; min-width: 0; }
+#shiju-chrome.sj-root .sj-setting-row > button { flex-shrink: 0; }
+#shiju-chrome.sj-root .sj-setting-row strong { font-size: 13px; font-weight: 600; }
+#shiju-chrome.sj-root .sj-settings .sj-btn { min-height: 40px; padding: 8px 12px; font-size: 12px; border-radius: 7px; }
+#shiju-chrome.sj-root .sj-setting-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+#shiju-chrome.sj-root .sj-setting-actions > button:first-child { background: var(--sj-accent); color: var(--sj-accent-fg); border-color: var(--sj-accent); }
+#shiju-chrome.sj-root .sj-setting-actions > button:disabled { opacity: .55; }
+#shiju-chrome.sj-root .sj-setting-save { padding-top: 16px; border-top: 1px solid var(--sj-border); }
+#shiju-chrome.sj-root .sj-setting-save > button { flex: 1; }
+#shiju-chrome.sj-root .sj-setting-divider { padding-top: 16px; margin-top: 16px; border-top: 1px solid var(--sj-border); }
+#shiju-chrome.sj-root .sj-settings :is(input:not([type="radio"]):not([type="checkbox"]),select,textarea) {
+  display: block; width: 100%; min-width: 0; max-width: 100%; min-height: 42px;
+  border: 1px solid var(--sj-line-strong); border-radius: 7px; padding: 10px 12px;
+  background: var(--sj-bg); color: var(--sj-fg); font: inherit; box-shadow: none; margin: 0;
+}
+#shiju-chrome.sj-root .sj-settings textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
+#shiju-chrome.sj-root .sj-settings input::placeholder { color: var(--sj-muted); opacity: 1; }
+#shiju-chrome.sj-root .sj-settings input:is([type="radio"],[type="checkbox"]) { accent-color: var(--sj-accent); flex: none; }
+#shiju-chrome.sj-root .sj-settings-card-content > label,
+#shiju-chrome.sj-root .sj-form-field > label,
+#shiju-chrome.sj-root .sj-disclosure-body > label { display: block; font-size: 12px; font-weight: 600; margin: 12px 0 6px; color: var(--sj-fg); }
+#shiju-chrome.sj-root .sj-form-fields { display: grid; gap: 16px; margin-top: 16px; }
+#shiju-chrome.sj-root .sj-form-field { min-width: 0; }
+#shiju-chrome.sj-root .sj-form-field > label:first-child { margin-top: 0; }
+#shiju-chrome.sj-root .sj-input-action { display: flex; align-items: stretch; gap: 8px; }
+#shiju-chrome.sj-root .sj-input-action > input { flex: 1; width: 0; }
+#shiju-chrome.sj-root .sj-input-action > button { flex: none; }
+#shiju-chrome.sj-root .sj-settings .sj-prompt-options { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; margin: 0 0 12px; }
+#shiju-chrome.sj-root .sj-settings .sj-prompt-options[aria-label="破限提示词模式"] { grid-template-columns: repeat(3,minmax(0,1fr)); }
+#shiju-chrome.sj-root .sj-settings .sj-prompt-options label { padding: 8px; border: 1px solid var(--sj-border); border-radius: 7px; min-height: 44px; margin: 0; cursor: pointer; font-size: 12px; }
+#shiju-chrome.sj-root .sj-settings .sj-prompt-options label:has(input:checked) { background: var(--sj-accent-soft); border-color: var(--sj-accent); }
+#shiju-chrome.sj-root .sj-setting-explanation { color: var(--sj-muted); background: var(--sj-bg); border-left: 2px solid var(--sj-accent); padding: 10px 12px; margin: 12px 0 0; font-size: 12px; }
+#shiju-chrome.sj-root .sj-setting-toggle { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px; border: 1px solid var(--sj-border); border-radius: 8px; cursor: pointer; }
+#shiju-chrome.sj-root .sj-setting-toggle strong { display: block; font-size: 13px; font-weight: 600; }
+#shiju-chrome.sj-root .sj-setting-toggle small { display: block; font-size: 12px; color: var(--sj-muted); margin-top: 4px; }
+#shiju-chrome.sj-root .sj-setting-toggle input { width: 18px; height: 18px; }
+#shiju-chrome.sj-root .sj-setting-test { display: flex; gap: 12px; align-items: center; }
+#shiju-chrome.sj-root .sj-setting-test > button { flex: none; }
+#shiju-chrome.sj-root .sj-setting-test .sj-note { margin: 0; }
+#shiju-chrome.sj-root .sj-settings-disclosure { border-top: 1px solid var(--sj-border); margin-top: 16px; }
+#shiju-chrome.sj-root .sj-settings-disclosure > summary { display: flex; gap: 8px; align-items: center; min-height: 48px; cursor: pointer; font-size: 13px; list-style: none; }
+#shiju-chrome.sj-root .sj-settings-disclosure > summary::-webkit-details-marker { display: none; }
+#shiju-chrome.sj-root .sj-settings-disclosure > summary::after { content: '+'; font-size: 18px; margin-left: auto; color: var(--sj-muted); }
+#shiju-chrome.sj-root .sj-settings-disclosure[open] > summary::after { content: '−'; }
+#shiju-chrome.sj-root .sj-disclosure-value { color: var(--sj-muted); font-size: 12px; }
+#shiju-chrome.sj-root .sj-disclosure-body { padding: 4px 0 12px; }
+#shiju-chrome.sj-root .sj-settings-card-content > .sj-settings-disclosure:first-child { margin-top: 0; border: 0; }
+#shiju-chrome.sj-root .sj-setting-summary { display: grid; gap: 12px; margin: 0; }
+#shiju-chrome.sj-root .sj-setting-summary > div { display: grid; grid-template-columns: 76px minmax(0,1fr); gap: 16px; }
+#shiju-chrome.sj-root .sj-setting-summary dt { color: var(--sj-muted); }
+#shiju-chrome.sj-root .sj-setting-summary dd { margin: 0; overflow-wrap: anywhere; }
+#shiju-chrome.sj-root .sj-settings .sj-themes { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+#shiju-chrome.sj-root .sj-settings .sj-theme { min-height: 64px; align-items: center; }
+#shiju-chrome.sj-root .sj-settings .sj-adv { margin: 0; padding: 0; background: transparent; border: 0; }
+#shiju-chrome.sj-root .sj-settings .sj-adv > summary { min-height: 44px; }
+#shiju-chrome.sj-root .sj-settings .sj-wb-note,
+#shiju-chrome.sj-root .sj-settings .sj-wb-legend { color: var(--sj-muted); font-size: 12px; }
+#shiju-chrome.sj-root .sj-settings .sj-wb-row { padding: 12px; gap: 10px; }
+#shiju-chrome.sj-root .sj-settings .sj-wb-seg button { min-height: 40px; color: var(--sj-muted); }
+#shiju-chrome.sj-root .sj-settings .sj-day-fix { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 0; }
+#shiju-chrome.sj-root .sj-diagnostic-list { padding-left: 20px; }
+#shiju-chrome.sj-root .sj-diagnostic-list li { margin: 12px 0; overflow-wrap: anywhere; }
+#shiju-chrome.sj-root .sj-diagnostic-list p { margin-top: 4px; color: var(--sj-muted); }
+#shiju-chrome.sj-root .sj-settings .sj-request-history > .sj-field-label { display: none; }
+#shiju-chrome.sj-root .sj-settings .sj-history-item { background: var(--sj-surface); padding: 12px; border: 1px solid var(--sj-border); border-radius: 8px; margin-top: 12px; }
+#shiju-chrome.sj-root .sj-settings .sj-history-item summary { padding: 8px 0; }
+@media (max-width: 480px) {
+  #shiju-chrome.sj-root .sj-settings-card { padding: 14px; }
+  #shiju-chrome.sj-root .sj-settings .sj-btn { min-height: 44px; }
+  #shiju-chrome.sj-root .sj-settings :is(input:not([type="radio"]):not([type="checkbox"]),select,textarea) { font-size: 16px; }
+}
+#shiju-chrome.sj-root .sj-history-entry .sj-btn { margin-top: 12px; }
+#shiju-chrome.sj-root .sj-history-help { color: var(--sj-muted); font-size: 12px; margin-bottom: 12px; }
+#shiju-chrome.sj-root .sj-history-help > summary { cursor: pointer; padding: 8px 0; }
+#shiju-chrome.sj-root .sj-history-filters { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; margin: 16px 0; }
+#shiju-chrome.sj-root .sj-history-filters label { margin: 0; font-size: 12px; min-width: 0; color: var(--sj-muted); }
+#shiju-chrome.sj-root .sj-history-filters select { padding: 8px; font-size: 12px; margin-top: 6px; }
+#shiju-chrome.sj-root .sj-settings-nav { position: sticky; top: 0; z-index: 3; }
+#shiju-chrome.sj-root .sj-setting-save { padding: 16px 0 0; background: var(--sj-surface); }
+#shiju-chrome.sj-root .sj-settings-nav { box-shadow: 0 -12px 0 var(--sj-bg), 0 8px 0 var(--sj-bg); }
+#shiju-chrome.sj-root .sj-body[data-page="settings"] { scroll-padding-top: 76px; }
+
+/* Read first, edit separately: consistent inline details across ledger pages. */
+#shiju-chrome.sj-root .sj-record-card { padding: 16px; }
+#shiju-chrome.sj-root .sj-record-card .sj-card-row { align-items: baseline; gap: 10px; }
+#shiju-chrome.sj-root .sj-record-card .sj-card-row strong { font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+#shiju-chrome.sj-root .sj-record-card .sj-record-caption { color: var(--sj-muted); margin-top: 6px; font-size: 12px; }
+#shiju-chrome.sj-root .sj-record-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+#shiju-chrome.sj-root .sj-record-actions .sj-btn { min-height: 44px; padding: 8px 12px; font-size: 12px; }
+#shiju-chrome.sj-root .sj-detail-toggle { display: inline-flex; align-items: center; gap: 20px; color: var(--sj-fg); background: var(--sj-accent-soft); border-color: transparent; }
+#shiju-chrome.sj-root .sj-detail-toggle[aria-expanded="true"] { border-color: var(--sj-border); background: var(--sj-raised); }
+#shiju-chrome.sj-root .sj-detail-toggle span { font-size: 18px; line-height: 1; }
+#shiju-chrome.sj-root .sj-record-detail { border-top: 1px solid var(--sj-border); margin-top: 12px; padding-top: 16px; min-width: 0; }
+#shiju-chrome.sj-root .sj-detail-section + .sj-detail-section { margin-top: 18px; }
+#shiju-chrome.sj-root .sj-detail-section h4 { font: inherit; font-size: 12px; font-weight: 600; color: var(--sj-muted); margin: 0 0 8px; }
+#shiju-chrome.sj-root .sj-record-detail .sj-detail-text { font-size: 14px; line-height: 1.8; color: var(--sj-fg); white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; user-select: text; }
+#shiju-chrome.sj-root .sj-record-detail .sj-detail-empty { color: var(--sj-muted); font-size: 13px; padding: 10px 0; }
+#shiju-chrome.sj-root .sj-detail-meta { display: grid; gap: 10px; margin: 18px 0 0; padding: 14px 0 0; border-top: 1px solid var(--sj-border); font-size: 12px; line-height: 1.6; }
+#shiju-chrome.sj-root .sj-detail-meta > div { display: grid; grid-template-columns: 76px minmax(0,1fr); gap: 12px; }
+#shiju-chrome.sj-root .sj-detail-meta dt { color: var(--sj-muted); }
+#shiju-chrome.sj-root .sj-detail-meta dd { margin: 0; color: var(--sj-fg); overflow-wrap: anywhere; }
+@media (max-width: 480px) {
+  #shiju-chrome.sj-root .sj-record-card { padding: 14px; }
+  #shiju-chrome.sj-root .sj-detail-meta > div { grid-template-columns: 68px minmax(0,1fr); gap: 8px; }
+}
