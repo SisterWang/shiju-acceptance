@@ -1468,3 +1468,20 @@
   #shiju-chrome.sj-root .sj-record-card { padding: 14px; }
   #shiju-chrome.sj-root .sj-detail-meta > div { grid-template-columns: 68px minmax(0,1fr); gap: 8px; }
 }
+
+/* World management: separate editors, reviewable drafts, and touch-sized actions. */
+#shiju-chrome.sj-root .sj-management-actions { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; }
+#shiju-chrome.sj-root .sj-management-panel { border:1px solid var(--sj-border); border-radius:12px; padding:16px; margin:16px 0; overflow-wrap:anywhere; }
+#shiju-chrome.sj-root .sj-management-panel fieldset { border:0; margin:0; padding:0; display:grid; gap:10px; min-width:0; }
+#shiju-chrome.sj-root .sj-management-panel :is(input:not([type=checkbox]),textarea,select) { display:block; width:100%; max-width:100%; min-height:44px; box-sizing:border-box; border:1px solid var(--sj-border); border-radius:7px; padding:10px; background:var(--sj-surface); color:var(--sj-fg); font:inherit; font-size:14px; }
+#shiju-chrome.sj-root .sj-management-panel textarea { resize:vertical; line-height:1.7; }
+#shiju-chrome.sj-root .sj-management-panel .sj-setting-toggle { display:flex; align-items:center; gap:12px; min-height:44px; }
+#shiju-chrome.sj-root .sj-management-panel pre { white-space:pre-wrap; overflow-wrap:anywhere; font:inherit; line-height:1.6; }
+#shiju-chrome.sj-root .sj-management-panel details { padding:12px 0; border-bottom:1px solid var(--sj-border); }
+#shiju-chrome.sj-root .sj-management-panel summary { min-height:44px; align-content:center; cursor:pointer; }
+#shiju-chrome.sj-root .sj-diff-columns { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+#shiju-chrome.sj-root .sj-management-panel .sj-btn, #shiju-chrome.sj-root .sj-management-actions .sj-btn { min-height:44px; }
+@media(max-width:480px) {
+  #shiju-chrome.sj-root .sj-diff-columns { grid-template-columns:minmax(0,1fr); }
+  #shiju-chrome.sj-root .sj-management-panel :is(input:not([type=checkbox]),textarea,select) { font-size:16px; }
+}
