@@ -1485,3 +1485,29 @@
   #shiju-chrome.sj-root .sj-diff-columns { grid-template-columns:minmax(0,1fr); }
   #shiju-chrome.sj-root .sj-management-panel :is(input:not([type=checkbox]),textarea,select) { font-size:16px; }
 }
+
+/* Update and clock diagnostics stay readable and operable on narrow screens. */
+#shiju-wand-entry { width: 100%; min-height: 44px; border: 0; background: transparent; color: inherit; text-align: start; cursor: pointer; }
+#shiju-wand-entry:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }
+#shiju-chrome.sj-root .sj-time-issue { min-height: 44px; padding: 6px 8px; max-width: 100%; background: var(--sj-accent-soft); color: var(--sj-fg); border: 1px solid var(--sj-border); border-radius: var(--sj-radius-sm); font: inherit; cursor: pointer; white-space: normal; }
+#shiju-chrome.sj-root .sj-time-issue[hidden],
+#shiju-chrome.sj-root .sj-update-notice[hidden] { display: none; }
+#shiju-chrome.sj-root .sj-time-diagnosis { border-left: 3px solid var(--sj-accent); padding: 8px 12px; margin-bottom: 16px; overflow-wrap: anywhere; }
+#shiju-chrome.sj-root .sj-time-diagnosis h3 { font-size: 14px; margin: 0 0 10px; }
+#shiju-chrome.sj-root .sj-time-point { padding: 10px 0; border-bottom: 1px solid var(--sj-border); }
+#shiju-chrome.sj-root .sj-time-point p { margin: 5px 0; }
+#shiju-chrome.sj-root .sj-time-point small { color: var(--sj-muted); font-size: 12px; }
+#shiju-chrome.sj-root .sj-update-notice { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); width: min(360px, calc(100vw - 32px)); padding: 16px; background: var(--sj-surface); border: 1px solid var(--sj-border); border-radius: var(--sj-radius); color: var(--sj-fg); box-shadow: var(--sj-shadow); pointer-events: auto; z-index: 3; }
+#shiju-chrome.sj-root .sj-update-notice p { margin: 0 0 12px; }
+#shiju-chrome.sj-root .sj-update-inline { padding: 10px; margin-bottom: 12px; border: 1px solid var(--sj-border); border-radius: var(--sj-radius-sm); }
+#shiju-chrome.sj-root .sj-reload-dialog { max-width: min(480px, calc(100vw - 32px)); box-sizing: border-box; padding: 20px; background: var(--sj-surface); color: var(--sj-fg); border: 1px solid var(--sj-border); border-radius: var(--sj-radius); pointer-events: auto; font: inherit; overflow-wrap: anywhere; }
+#shiju-chrome.sj-root .sj-reload-dialog::backdrop { background: #0008; }
+#shiju-chrome.sj-root .sj-update-notice .sj-btn,
+#shiju-chrome.sj-root .sj-reload-dialog .sj-btn,
+#shiju-chrome.sj-root .sj-time-diagnosis .sj-btn { min-height: 44px; }
+#shiju-chrome.sj-root .sj-time-issue:focus-visible,
+#shiju-chrome.sj-root .sj-time-diagnosis:focus { outline: 2px solid var(--sj-accent); outline-offset: 3px; }
+#shiju-chrome.sj-root [data-action="toggle-fab"],
+#shiju-chrome.sj-root [data-action="correct-day"],
+#shiju-chrome.sj-root [data-choice],
+#shiju-chrome.sj-root [data-refresh-app] { min-height: 44px; }
