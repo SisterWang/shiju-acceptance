@@ -6,10 +6,10 @@
   "js": "index.js",
   "css": "style.css",
   "author": "世局",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "auto_update": false,
   "hooks": {
     "update": "onExtensionUpdate"
   },
-  "shiju_build": "0.1.1+2861ddce0190"
+  "shiju_build": "0.1.2+3e4d5858218f"
 }

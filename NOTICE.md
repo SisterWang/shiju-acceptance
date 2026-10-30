@@ -10,7 +10,7 @@
 To reproduce: `npm ci && npm run build`. Runtime installation requires only repository files, not npm or external CDNs.
 
 
-Complete corresponding source, build scripts, lockfile and individual licenses are in source.zip. Source commit: eaef29eac7c48c49fc75b6cc24821c176209c4dd. Unzip, run npm ci, npm run build, then node scripts/build-distribution.mjs dist.
+Complete corresponding source, build scripts, lockfile and individual licenses are in source.zip. Source commit: 12c96a7bf174f4710eaefe4836916ff7f31f6ef3. Unzip, run npm ci, npm run build, then node scripts/build-distribution.mjs dist.
 
 
 ===== EJS-Apache-2.0.txt =====
